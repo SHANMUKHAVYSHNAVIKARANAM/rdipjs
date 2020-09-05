@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		$(document).ready(function() {
+   
+    var anagram = function(str1, str2){
+      return str1.split("").sort().join("") === str2.split("").sort().join("");
+    }
+   
+    
+    $('.checkAna').on('click', function(e) {
+        e.preventDefault();
+        if($('#string1').val() == '') {
+            $('#string1').addClass('error');
+            if($('#string2').val() == '') {
+                $('#string2').addClass('error');
+            }
+            $('.results').empty();
+            $('.results').hide();
+        } else {
+            $('#string1').removeClass('error');
+            if($('#string2').val() == '') {
+                $('#string2').addClass('error');
+                $('.results').empty();
+                $('.results').hide();
+            } else {
+                $('#string2').removeClass('error');
+                var isAnagram = anagram($('#string1').val(), $('#string2').val());
+                $('#string1').val('');
+                $('#string2').val('')
+                $('.results').show();
+                $('.results').empty().append('Is Anagram: ' + isAnagram);
+            }
+        }
+    });
+    
+    
+});
+	</script>
+	<style>
+		body {
+    font-family: 'Helvetica', 'Arial', 'sans-serif';
+    font-size: 12px;
+}
+label {
+    display: inline-block;
+}
+input {
+    display: block;
+    margin-bottom: 20px;
+}
+.results {
+    display: none;
+}
+.error {
+    background-color: #FFAAAA;
+}
+	</style>
+</head>
+<body>
+<label for="string1">String 1</label>
+<input type="text" id="string1" placeholder="String 1" />
+
+<label for="string2">String 2</label>
+<input type="text" id="string2" placeholder="String 2" />
+<button class="checkAna">Check Anagram</button>
+<div class="results"></div>
+</body>
+</html>

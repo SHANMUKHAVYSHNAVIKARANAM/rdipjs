@@ -1,0 +1,49 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<title>Palindrome using JS</title>
+<style>
+input{
+padding: 20px;
+}
+</style>
+<script>
+function TestFunction()
+{
+//Here we are getting the value from the textbox on browser
+var InputStr = document.getElementById('tbox').value; //here we are calling checkingPalindrome() function and passing a string into it
+var resStr = checkingPalindrome(InputStr);
+alert('The input string "'+InputStr+'" is "'+resStr+'"'); // This will allow a //rectangular box to be popped up on the screen to display result
+}
+function checkingPalindrome(InputStr)
+{
+var origString;
+//here we are converting the string into a lowercase string
+InputStr = InputStr.toLowerCase();
+//here we are storing the InputStr in origString for reference
+origString= InputStr;
+//here we are reversing the entered string
+InputStr = InputStr.split(''); //this function will split the input string
+InputStr = InputStr.reverse(); //this function will reverse the string
+InputStr = InputStr.join(''); //this function will join the reversed string characters
+var revString = InputStr;
+//here we are checking if both the input string and the reversed string are same
+//and based on it the string will be declared palindrome or not
+if(origString == revString){
+return 'Palindrome string'; //  this will return "Palindrome" if true //otherwise control will flow to else condition
+}
+else
+{
+return 'not a Palindrome string';
+}
+}
+</script>
+</head>
+<body>
+<form action="" method="get"> &nbsp
+<h3 align='center' >Javascript Program to find if the number is Palindrome or not: </h3> &nbsp
+<p align='center'><input type="text" id="tbox" placeholder="Enter the string here" />
+<input type="button" onclick="TestFunction()" value="Click here" /></p>
+</form>
+</body>
+</html>

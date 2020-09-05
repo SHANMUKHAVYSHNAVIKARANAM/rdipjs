@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  function one(r)
+  {
+    if((r>=0) && (r<=300))
+    {
+      return 1;
+    }
+    if((r > 300) && (r <= 600 ))
+    {
+      return 2;
+    }
+    if((r>600) && ( r <=1000 ))
+    {
+      return 3;
+    }
+  }
+  function survive(){
+   var x = document.forms["myForm"]["num1"].value;
+   var y = document.forms["myForm"]["num2"].value;
+   var p = one(x)
+   var q = one(y)
+   if((x == 0) || (y == 0))
+   {
+     alert("give some input");
+     return false;
+   }
+   if(p == q)
+   {
+    alert("Both inputs belong to same category so its a 'Tie'");
+    return false;
+
+   }
+   if((p==1) && (q == 2)){
+     alert(" Your inputs are 'Human' and 'Cockroach',so 'Human' will survive ");
+     return false;
+   }
+   if((p==2) && (q == 1)){
+     alert(" Your inputs are 'Cockroach' and 'Human',so 'Human' will survive ");
+     return false;
+   }
+   if((p==1) && (q == 3)){
+     alert(" Your inputs are 'Human' and 'Nuclear Bomb',so 'Nuclear Bomb' will survive ");
+     return false;
+   }
+      if((p==3) && (q == 1)){
+     alert(" Your inputs are 'Nuclear Bomb' and 'Human',so 'Nuclear Bomb' will survive ");
+     return false;
+   }
+      if((p==2) && (q == 3)){
+     alert(" Your inputs are 'Cockroach' and 'Nuclear Bomb',so 'Cockroach' will survive ");
+     return false;
+   }
+      if((p==3) && (q == 2)){
+     alert(" Your inputs are 'Nuclear Bomb' and 'Cockroach',so 'Cockroach' will survive ");
+     return false;
+   } }
+  </script>
+</head>
+<body>
+<form name="myForm" action = "invalidinput.html" onsubmit="return survive()" >
+  <p>Give any  2 numbers from 1 to 1000</p>
+  <p>Input1:</p> <input type="number" id="num1"><br>
+  <p>input2</p> <input type="number" id="num2"><br>
+  <p>According to my  mapping:0-300 belongs to category-1<br>301-600 belongs to category-2<br>601-1000 belongs to category 3<br></p>
+
+   <input type="submit" value="Submit">
+
+</button>
+</body>
+</html>
